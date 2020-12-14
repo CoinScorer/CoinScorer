@@ -1,6 +1,6 @@
 # CoinScorer
 
-[https://github.com/CoinScorer/CoinScorer/files/CoinScorer_2020-12-12_09-35-54.png](Application screenshot)
+![Application screenshot](https://github.com/CoinScorer/CoinScorer/blob/main/files/CoinScorer_2020-12-12_09-35-54.png?raw=true)
 
 Momentalne jen repositar slouzici k bug-trackingu pro aplikaci CoinScorer.
 
