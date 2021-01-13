@@ -6,15 +6,12 @@ Multi-purpose Application cryptocurrency traders. Application allows better over
 
 Application is available for all platforms - Windows, OSX and Linux. Application is free for use during alpha and beta period.
 
-
 This repository contains application bug-tracking and application releases for the download. 
 
-Bugs can be reported here: https://github.com/CoinScorer/CoinScorer/issues
+###Useful links:
 
-Application installers can be downloaded here: https://github.com/CoinScorer/CoinScorer/releases
-
-Telegram group (in Czech language) : https://t.me/coinscorercz
-
-Facebook group: https://www.facebook.com/groups/1067816946699292
-
-Application web page (in construction) : https://help.coinscorer.com/
+- Bugs can be reported here: https://github.com/CoinScorer/CoinScorer/issues
+- Application installers can be downloaded here: https://github.com/CoinScorer/CoinScorer/releases
+- Telegram group (in Czech language) : https://t.me/coinscorercz
+- Facebook group: https://www.facebook.com/groups/1067816946699292
+- Application web page (in construction) : https://help.coinscorer.com/
