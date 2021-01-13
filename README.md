@@ -8,7 +8,7 @@ Application is available for all platforms - Windows, OSX and Linux. Application
 
 This repository contains application bug-tracking and application releases for the download. 
 
-###Useful links:
+**Useful links:**
 
 - Bugs can be reported here: https://github.com/CoinScorer/CoinScorer/issues
 - Application installers can be downloaded here: https://github.com/CoinScorer/CoinScorer/releases
