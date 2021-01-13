@@ -2,12 +2,14 @@
 
 ![Application screenshot](https://github.com/CoinScorer/CoinScorer/blob/main/files/CoinScorer_2020-12-12_09-35-54.png?raw=true)
 
-Momentalne jen repositar slouzici k bug-trackingu pro aplikaci CoinScorer.
+Multi-purpose Application cryptocurrency traders. Application allows better overview of your assets on the exchange, dynamic analysis of your trades, market scanners and alerts and much more. Currenly in eary-alpha state.
 
-Bugy muzete hlasit zde: https://github.com/CoinScorer/CoinScorer/issues
+This repository contains application bug-tracking and application releases for the download. 
 
-Telegramova skupina je k dispozici zde: https://t.me/coinscorercz
+Bugs can be reported here: https://github.com/CoinScorer/CoinScorer/issues
 
-Facebookova skupina: https://www.facebook.com/groups/1067816946699292
+Telegram group (in Czech language) : https://t.me/coinscorercz
 
-Webova stranka aplikace: https://help.coinscorer.com/
+Facebook group: https://www.facebook.com/groups/1067816946699292
+
+Application web page (in construction) : https://help.coinscorer.com/
