@@ -18,6 +18,9 @@ Multi-purpose Application cryptocurrency traders. The application allows a bette
 - Visual charts showing all alerts, entered trades, complex scanner rules, etc.
 - Graphical trading in charts. Entering complex trades with few clicks, fast buy/sell with one click, etc.
 
+**Supported exchanges**
+- Currently only Binance SPOT trading is supported
+
 Application is available for all platforms - Windows, OSX, and Linux. Application is free for use during the alpha and beta periods.
 
 This repository contains application bug-tracking and application releases for download. 
