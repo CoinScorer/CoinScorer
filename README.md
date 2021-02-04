@@ -38,3 +38,8 @@ This repository contains application bug-tracking and application releases for d
 I'm currently developing a project only by myself in my free time. I believe that the application can help a lot of trades in their daily routine, save them a lot of time, errors, and nerves when entering trades manually. The application will be free of charge until all features will be more stable and mature. Unfortunately, this means that I can't afford to pay more developers so also feature set is limited and progress isn't as fast as I would like to. This is the reason why currently only Binance SPOT trading is supported because maintaining several exchanges API is very time-consuming.
 
 Any donation or help is appreciated. Feel free to contact me on ludek.vodicka@coinscorer.com
+
+
+**Development info:**
+
+Project documentataion is available in `gh-pages` branch and available here: https://coinscorer.github.io/CoinScorer/
