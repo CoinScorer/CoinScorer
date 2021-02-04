@@ -1,0 +1,13 @@
+
+choco install python --version=3.7.5
+choco install mkdocs
+
+pip install mkdocs-material
+pip install pymdown-extensions
+pip install mkdocs-minify-plugin
+
+https://squidfunk.github.io/mkdocs-material/
+https://facelessuser.github.io/pymdown-extensions/extensions/superfences/#nested-fence-format
+https://yakworks.github.io/mkdocs-material-components/cheat-sheet/
+
+tabs: https://github.com/squidfunk/mkdocs-material/issues/825
