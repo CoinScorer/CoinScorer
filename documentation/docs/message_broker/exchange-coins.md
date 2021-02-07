@@ -5,10 +5,10 @@
 - Type: `Request`
 - Message: `MessageType::ExchangeCoins::requestSymbolPrice`
 - Returns: `double`
-- Params: `XString strExchange, stSymbolPair symbol`
+- Params: `XUuid uuidApiKey, stSymbolPair symbol`
 
 ``` cpp tab="Send"
-SendRequest<double, XString,stSymbolPair>(
+SendRequest<double, XUuid,stSymbolPair>(
   MessageType::ExchangeCoins::requestSymbolPrice::id(),
   "binance",
   stSymbolPair("btc","usdt")
@@ -16,14 +16,14 @@ SendRequest<double, XString,stSymbolPair>(
 ```
 
 ``` cpp tab="Register"
-RegisterRequestCallback<double, XString,stSymbolPair>(
+RegisterRequestCallback<double, XUuid,stSymbolPair>(
   MessageType::ExchangeCoins::requestSymbolPrice::id(),
   boost::bind(&method, this, _1,_2)
 );
 ```
 
 ``` cpp tab="Handler"
-double method(const XString& strExchange, const stSymbolPair& symbol)
+double method(const XUuid& uuidApiKey, const stSymbolPair& symbol)
 {
 
 }
@@ -34,17 +34,17 @@ double method(const XString& strExchange, const stSymbolPair& symbol)
 - Type: `Request`
 - Message: `MessageType::ExchangeCoins::requestKnownPairs`
 - Returns: `symbols:TlstSymbolPairs`
-- Params: `XString strExchange`
+- Params: `XUuid uuidApiKey`
 
 ``` cpp tab="Send"
-SendRequest<TlstSymbolPairs, XString>(
+SendRequest<TlstSymbolPairs, XUuid>(
   MessageType::ExchangeCoins::requestKnownPairs::id(),
   "binance"
 );
 ```
 
 ``` cpp tab="Register"
-RegisterRequestCallback<TlstSymbolPairs, XString>(
+RegisterRequestCallback<TlstSymbolPairs, XUuid>(
   MessageType::ExchangeCoins::requestKnownPairs::id(),
   boost::bind(&method, this, _1)
 );
@@ -56,10 +56,10 @@ RegisterRequestCallback<TlstSymbolPairs, XString>(
 - Type: `Request`
 - Message: `MessageType::ExchangeCoins::requestFilteredMarketTickers`
 - Returns: `symbols:TlstSymbolPairs`
-- Params: `XString strExchange, stSymbolsFilterAdvanced filter`
+- Params: `XUuid uuidApiKey, stSymbolsFilterAdvanced filter`
 
 ``` cpp tab="Send"
-SendRequest<TlstSymbolPairs, XString,timeframe_t>(
+SendRequest<TlstSymbolPairs, XUuid,timeframe_t>(
   MessageType::ExchangeCoins::requestFilteredMarketTickers::id(),
   "binance",
   filter
@@ -67,7 +67,7 @@ SendRequest<TlstSymbolPairs, XString,timeframe_t>(
 ```
 
 ``` cpp tab="Register"
-RegisterRequestCallback<TlstSymbolPairs, XString,stSymbolsFilterAdvanced>(
+RegisterRequestCallback<TlstSymbolPairs, XUuid,stSymbolsFilterAdvanced>(
   MessageType::ExchangeCoins::requestFilteredMarketTickers::id(),
   boost::bind(&method, this, _1, _2)
 );
@@ -77,10 +77,10 @@ RegisterRequestCallback<TlstSymbolPairs, XString,stSymbolsFilterAdvanced>(
 
 - Type: `Message`
 - Message: `MessageType::ExchangeCoins::notifyExchangeNewSymbol`
-- Params: `XString strExchange, const stSymbolPair& symbol`
+- Params: `const stExchangeId& exchangeId, const stSymbolPair& symbol`
 
 ``` cpp tab="Send"
-SendMessage<XString, stSymbolPair>(
+SendMessage<stExchangeId, stSymbolPair>(
   MessageType::ExchangeCoins::notifyExchangeNewSymbol::id(),
   boost::bind(&method, this, _1),
   exchange,
@@ -89,14 +89,14 @@ SendMessage<XString, stSymbolPair>(
 ```
 
 ``` cpp tab="Register"
-RegisterMessageCallback<XString, stSymbolPair>(
+RegisterMessageCallback<stExchangeId, stSymbolPair>(
   MessageType::ExchangeCoins::notifyExchangeNewSymbol::id(),
   boost::bind(&method, this, _1, _2)
 );
 ```
 
 ``` cpp tab="Handler"
-void method(const XString& strExchange, const Modules::Currencies::stSymbolPair& pair)
+void method(const stExchangeId& exchangeId, const Modules::Currencies::stSymbolPair& pair)
 {
 
 }
@@ -106,10 +106,10 @@ void method(const XString& strExchange, const Modules::Currencies::stSymbolPair&
 
 - Type: `Message`
 - Message: `MessageType::ExchangeCoins::notifyExchangePriceUpdated`
-- Params: `XString strExchange`
+- Params: `const stExchangeId& exchangeId, const stMarketTicker& tickUpdate`
 
 ``` cpp tab="Send"
-SendMessage<XString, stSymbolPair>(
+SendMessage<stExchangeId, stMarketTicker>(
   MessageType::ExchangeCoins::notifyExchangePriceUpdated::id(),
   boost::bind(&method, this, _1),
   exchange,
@@ -117,14 +117,14 @@ SendMessage<XString, stSymbolPair>(
 ```
 
 ``` cpp tab="Register"
-RegisterMessageCallback<XString>(
+RegisterMessageCallback<stExchangeId,stMarketTicker>(
   MessageType::ExchangeCoins::notifyExchangePriceUpdated::id(),
   boost::bind(&method, this, _1)
 );
 ```
 
 ``` cpp tab="Handler"
-void method(const XString& strExchange)
+void method(const stExchangeId& exchangeId, const stMarketTicker& tickUpdate)
 {
 
 }

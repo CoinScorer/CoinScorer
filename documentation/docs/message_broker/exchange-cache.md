@@ -5,10 +5,10 @@
 - Type: `Request/Demand`
 - Message: `MessageType::ExchangeDataCache::demandGetCachedExchangeDataByInterval`
 - Returns: `candleData:XCandlesGapContainerSimple`
-- Params: `XString strExchange, const stSymbolPair& symbol, TTimeframe timeframe, TTimestampInterval dataInterval`
+- Params: `stExchangeId exchangeId, const stSymbolPair& symbol, TTimeframe timeframe, TTimestampInterval dataInterval`
 
 ``` cpp tab="Send"
-SendDemand<XCandlesGapContainerSimple, XString, stSymbolPair, TTimeframe, TTimestampInterval>(
+SendDemand<XCandlesGapContainerSimple, stExchangeId, stSymbolPair, TTimeframe, TTimestampInterval>(
   MessageType::ExchangeDataCache::demandGetCachedExchangeDataByInterval::id(),
   boost::bind(&method, this, _1),
   exchange,
@@ -19,14 +19,14 @@ SendDemand<XCandlesGapContainerSimple, XString, stSymbolPair, TTimeframe, TTimes
 ```
 
 ``` cpp tab="Register"
-RegisterDemandCallback<XCandlesGapContainerSimple,XString,stSymbolPair,TTimeframe,TTimestampInterval>(
+RegisterDemandCallback<XCandlesGapContainerSimple,stExchangeId,stSymbolPair,TTimeframe,TTimestampInterval>(
   MessageType::ExchangeDataCache::demandGetCachedExchangeDataByInterval::id(),
   boost::bind(&method, this, _1, _2, _3, _4, _5)
 );
 ```
 
 ``` cpp tab="Handler"
-void method(Atomix::MessageBroker::IDemandEvent<XCandlesGapContainerSimple>* demandEvent, const XString& strExchange, const Modules::Currencies::stSymbolPair& pair, const TTimeframe& tfTimeframe, const TTimestampInterval& tmTimeInterval)
+void method(Atomix::MessageBroker::IDemandEvent<XCandlesGapContainerSimple>* demandEvent, const stExchangeId& exchangeId, const Modules::Currencies::stSymbolPair& pair, const TTimeframe& tfTimeframe, const TTimestampInterval& tmTimeInterval)
 {
 
 }
@@ -37,12 +37,12 @@ void method(Atomix::MessageBroker::IDemandEvent<XCandlesGapContainerSimple>* dem
 - Type: `Request/Demand`
 - Message: `MessageType::ExchangeDataCache::demandGetCachedExchangeDataByAmount`
 - Returns: `candleData:XCandlesGapContainerSimple`
-- Params: `XString strExchange, const stSymbolPair& symbol, TTimeframe timeframe, TTimestamp dataTimestamp, int nAmount`
+- Params: `stExchangeId exchangeId, const stSymbolPair& symbol, TTimeframe timeframe, TTimestamp dataTimestamp, int nAmount`
 
 Note: Requires amount data starting by dataTimestamp. For forward pass `+amount`, for backward `-amount`
 
 ``` cpp tab="Send"
-SendDemand<XCandlesGapContainerSimple, XString, stSymbolPair, TTimeframe, TTimestamp,int>(
+SendDemand<XCandlesGapContainerSimple, stExchangeId, stSymbolPair, TTimeframe, TTimestamp,int>(
   MessageType::ExchangeDataCache::demandGetCachedExchangeDataByAmount::id(),
   boost::bind(&method, this, _1),
   exchange,
@@ -53,14 +53,14 @@ SendDemand<XCandlesGapContainerSimple, XString, stSymbolPair, TTimeframe, TTimes
 ```
 
 ``` cpp tab="Register"
-RegisterDemandCallback<XCandlesGapContainerSimple,XString,stSymbolPair,TTimeframe,TTimestamp,int>(
+RegisterDemandCallback<XCandlesGapContainerSimple,stExchangeId,stSymbolPair,TTimeframe,TTimestamp,int>(
   MessageType::ExchangeDataCache::demandGetCachedExchangeDataByAmount::id(),
   boost::bind(&method, this, _1, _2, _3, _4, _5, _6)
 );
 ```
 
 ``` cpp tab="Handler"
-void method(Atomix::MessageBroker::IDemandEvent<XCandlesGapContainerSimple>* demandEvent, const XString& strExchange, const Modules::Currencies::stSymbolPair& pair, const TTimeframe& tfTimeframe, const TTimestamp& tmTimeInterval, int nAmount)
+void method(Atomix::MessageBroker::IDemandEvent<XCandlesGapContainerSimple>* demandEvent, const stExchangeId& exchangeId, const Modules::Currencies::stSymbolPair& pair, const TTimeframe& tfTimeframe, const TTimestamp& tmTimeInterval, int nAmount)
 {
 
 }
