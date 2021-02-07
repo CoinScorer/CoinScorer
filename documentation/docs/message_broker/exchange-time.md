@@ -5,17 +5,17 @@
 - Type: `Request`
 - Message: `MessageType::ExchangeDataOnline::requestExchangeTime`
 - Returns: `timestamp:TTimestamp`
-- Params: `XString strExchange`
+- Params: `stExchangeId exchangeId`
 
 ``` cpp tab="Send"
 SendRequest<TTimestamp>(
   ExchangesData::MessageType::ExchangeDataOnline::requestExchangeTime::id(),
-  "binance"
+  stExchangeId("binance")
 );
 ```
 
 ``` cpp tab="Register"
-RegisterRequestCallback<TTimestamp, XString>(
+RegisterRequestCallback<TTimestamp, stExchangeId>(
   MessageType::ExchangeDataOnline::requestExchangeTime::id(),
    boost::bind(&method, this, _1)
 );
@@ -26,17 +26,17 @@ RegisterRequestCallback<TTimestamp, XString>(
 - Type: `Request`
 - Message: `MessageType::ExchangeDataOnline::requestExchangeVsLocalTimeDiff`
 - Returns: `timeoffset:TTimestamp`
-- Params: `XString strExchange`
+- Params: `stExchangeId exchangeId`
 
 ``` cpp tab="Send"
 SendRequest<TTimestamp>(
   ExchangesData::MessageType::ExchangeDataOnline::requestExchangeVsLocalTimeDiff::id(),
-  "binance"
+  stExchangeId("binance")
 );
 ```
 
 ``` cpp tab="Register"
-RegisterRequestCallback<TTimestamp, XString>(
+RegisterRequestCallback<TTimestamp, stExchangeId>(
   MessageType::ExchangeDataOnline::requestExchangeVsLocalTimeDiff::id(),
   boost::bind(&method, this, _1)
 );

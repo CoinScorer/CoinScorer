@@ -5,10 +5,10 @@
 - Type: `Request`
 - Message: `MessageType::ExchangeCoins::requestSymbolPrice`
 - Returns: `double`
-- Params: `XUuid uuidApiKey, stSymbolPair symbol`
+- Params: `stExchangeId exchangeId, stSymbolPair symbol`
 
 ``` cpp tab="Send"
-SendRequest<double, XUuid,stSymbolPair>(
+SendRequest<double, stExchangeId,stSymbolPair>(
   MessageType::ExchangeCoins::requestSymbolPrice::id(),
   "binance",
   stSymbolPair("btc","usdt")
@@ -16,14 +16,14 @@ SendRequest<double, XUuid,stSymbolPair>(
 ```
 
 ``` cpp tab="Register"
-RegisterRequestCallback<double, XUuid,stSymbolPair>(
+RegisterRequestCallback<double, stExchangeId, stSymbolPair>(
   MessageType::ExchangeCoins::requestSymbolPrice::id(),
   boost::bind(&method, this, _1,_2)
 );
 ```
 
 ``` cpp tab="Handler"
-double method(const XUuid& uuidApiKey, const stSymbolPair& symbol)
+double method(const stExchangeId& exchangeId, const stSymbolPair& symbol)
 {
 
 }
@@ -34,17 +34,17 @@ double method(const XUuid& uuidApiKey, const stSymbolPair& symbol)
 - Type: `Request`
 - Message: `MessageType::ExchangeCoins::requestKnownPairs`
 - Returns: `symbols:TlstSymbolPairs`
-- Params: `XUuid uuidApiKey`
+- Params: `stExchangeId exchangeId`
 
 ``` cpp tab="Send"
-SendRequest<TlstSymbolPairs, XUuid>(
+SendRequest<TlstSymbolPairs, stExchangeId>(
   MessageType::ExchangeCoins::requestKnownPairs::id(),
   "binance"
 );
 ```
 
 ``` cpp tab="Register"
-RegisterRequestCallback<TlstSymbolPairs, XUuid>(
+RegisterRequestCallback<TlstSymbolPairs, stExchangeId>(
   MessageType::ExchangeCoins::requestKnownPairs::id(),
   boost::bind(&method, this, _1)
 );
@@ -56,10 +56,10 @@ RegisterRequestCallback<TlstSymbolPairs, XUuid>(
 - Type: `Request`
 - Message: `MessageType::ExchangeCoins::requestFilteredMarketTickers`
 - Returns: `symbols:TlstSymbolPairs`
-- Params: `XUuid uuidApiKey, stSymbolsFilterAdvanced filter`
+- Params: `stExchangeId exchangeId, stSymbolsFilterAdvanced filter`
 
 ``` cpp tab="Send"
-SendRequest<TlstSymbolPairs, XUuid,timeframe_t>(
+SendRequest<TlstSymbolPairs, stExchangeId,timeframe_t>(
   MessageType::ExchangeCoins::requestFilteredMarketTickers::id(),
   "binance",
   filter
@@ -67,7 +67,7 @@ SendRequest<TlstSymbolPairs, XUuid,timeframe_t>(
 ```
 
 ``` cpp tab="Register"
-RegisterRequestCallback<TlstSymbolPairs, XUuid,stSymbolsFilterAdvanced>(
+RegisterRequestCallback<TlstSymbolPairs, stExchangeId,stSymbolsFilterAdvanced>(
   MessageType::ExchangeCoins::requestFilteredMarketTickers::id(),
   boost::bind(&method, this, _1, _2)
 );

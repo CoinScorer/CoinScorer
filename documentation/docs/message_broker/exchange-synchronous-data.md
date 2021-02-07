@@ -5,17 +5,17 @@
 - Type: `Message`
 - Start: `MessageType::ExchangeDataSynchronous::cmdCandleTickerStart`
 - Stop: `MessageType::ExchangeDataSynchronous::cmdCandleTickerStop`
-- Params: `XString strExchange, const stSymbolPair& symbol, TTimeframe timeframe`
+- Params: `stExchangeId exchangeId, const stSymbolPair& symbol, TTimeframe timeframe`
 
 ``` cpp tab="Send"
-SendMessage<XString, stSymbolPair, TTimeframe>(
+SendMessage<stExchangeId, stSymbolPair, TTimeframe>(
   MessageType::ExchangeDataSynchronous::cmdCandleTickerStart::id(),
   "binance",
   stSymbolPair("bnb","btc"),
   TTimeframe(EnmTimeframe::Min1)
 );
 
-SendMessage<XString, stSymbolPair, TTimeframe>(
+SendMessage<stExchangeId, stSymbolPair, TTimeframe>(
   MessageType::ExchangeDataSynchronous::cmdCandleTickerStop::id(),
   "binance",
   stSymbolPair("bnb","btc"),
@@ -24,12 +24,12 @@ SendMessage<XString, stSymbolPair, TTimeframe>(
 ```
 
 ``` cpp tab="Register"  
-RegisterMessageCallback<XString, Currencies::stSymbolPair, TTimeframe>(
+RegisterMessageCallback<stExchangeId, Currencies::stSymbolPair, TTimeframe>(
   MessageType::ExchangeDataSynchronous::cmdCandleTickerStart::id(),
   boost::bind(&method, this, _1, _2, _3)
 );
 
-RegisterMessageCallback<XString, Currencies::stSymbolPair, TTimeframe>(
+RegisterMessageCallback<stExchangeId, Currencies::stSymbolPair, TTimeframe>(
   MessageType::ExchangeDataSynchronous::cmdCandleTickerStop::id(),
   boost::bind(&method, this, _1, _2, _3)
 );
