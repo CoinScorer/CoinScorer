@@ -10,14 +10,14 @@
 ``` cpp tab="Send"
 SendMessage<stExchangeId, stSymbolPair, timeframe_t>(
   MessageType::ExchangeDataOnline::cmdCandleTickerStart::id(),
-  "binance",
+  exchangeBinanceId,
   stSymbolPair("bnb","btc"),
   timeframe_t(EnmTimeframe::Min1)
 );
 
 SendMessage<stExchangeId, stSymbolPair, timeframe_t>(
   MessageType::ExchangeDataOnline::cmdCandleTickerStop::id(),
-  "binance",
+  exchangeBinanceId,
   stSymbolPair("bnb","btc"),
   timeframe_t(EnmTimeframe::Min1)
 );
@@ -45,14 +45,14 @@ RegisterMessageCallback<stExchangeId, stSymbolPair, timeframe_t>(
 ``` cpp tab="Send"
 SendMessage<stExchangeId, stSymbolPair, timeframe_t>(
   MessageType::ExchangeDataOnline::cmdCandleTickerHigResolutionStart::id(),
-  "binance",
+  exchangeBinanceId,
   stSymbolPair("bnb","btc"),
   timeframe_t(EnmTimeframe::Min1)
 );
 
 SendMessage<stExchangeId, stSymbolPair, timeframe_t>(
   MessageType::ExchangeDataOnline::cmdCandleTickerHigResolutionStop::id(),
-  "binance",
+  exchangeBinanceId,
   stSymbolPair("bnb","btc"),
   timeframe_t(EnmTimeframe::Min1)
 );
@@ -75,19 +75,19 @@ RegisterMessageCallback<stExchangeId, stSymbolPair, timeframe_t>(
 Ticker message for normal and high-resolution ticker.
 
 - Type: `Message`
-- Message: `MessageType::ExchangeDataOnline::onCandleTickerTick(exchange, symbol, timeframe)`
+- Message: `MessageType::ExchangeDataOnline::onCandleTickerTick::id(exchange, symbol, timeframe)`
 - Params: `tradeData:stTimeCandleStick`
 
 ``` cpp tab="Register"
 RegisterMessageCallback<stTimeCandleStick>(
-  MessageType::ExchangeDataOnline::onCandleTickerTick(exchangeId, pair, timeframe),
+  MessageType::ExchangeDataOnline::onCandleTickerTick::id(exchangeId, pair, timeframe),
   boost::bind(&method, this, _1)
 );
 ```
 
 ``` cpp tab="Send"
 SendMessage<stTimeCandleStick>(
-  MessageType::ExchangeDataOnline::onCandleTickerTick(exchangeId, symbol, timeframe),
+  MessageType::ExchangeDataOnline::onCandleTickerTick::id(exchangeId, symbol, timeframe),
   dataCandleStick
 );
 ```
@@ -100,15 +100,15 @@ SendMessage<stTimeCandleStick>(
 - Params: `stExchangeId exchangeId, const stSymbolPair& symbol`
 
 ``` cpp tab="Send"
-SendMessage<stExchangeId, stSymbolPair, timeframe_t>(
+SendMessage<stExchangeId, stSymbolPair>(
   MessageType::ExchangeDataOnline::cmdTradeTickerStart::id(),
-  "binance",
+  exchangeBinanceId,
   stSymbolPair("bnb","btc"),
 );
 
-SendMessage<stExchangeId, stSymbolPair, timeframe_t>(
+SendMessage<stExchangeId, stSymbolPair>(
   MessageType::ExchangeDataOnline::cmdTradeTickerStop::id(),
-  "binance",
+  exchangeBinanceId,
   stSymbolPair("bnb","btc"),
 );
 ```
@@ -128,19 +128,19 @@ RegisterMessageCallback<stExchangeId, stSymbolPair>(
 ## Trade ticker
 
 - Type: `Message`
-- Message: `MessageType::ExchangeDataOnline::onTradeTick(exchange, symbol)`
-- Params: `tradeData:stSymbolTimeTradeData`
+- Message: `MessageType::ExchangeDataOnline::onTradeTick::id(exchange, symbol)`
+- Params: `tradeData:stTimeTradeData`
 
 ``` cpp tab="Register"
-RegisterMessageCallback<stSymbolTimeTradeData>(
-  MessageType::ExchangeDataOnline::onTradeTick(exchange, pair),
+RegisterMessageCallback<stTimeTradeData>(
+  MessageType::ExchangeDataOnline::onTradeTick::id(exchange, pair),
   boost::bind(&method, this, _1)
 );
 ```
 
 ``` cpp tab="Send"
-SendMessage<stSymbolTimeTradeData>(
-  MessageType::ExchangeDataOnline::onTradeTick(exchange, symbol),
+SendMessage<stTimeTradeData>(
+  MessageType::ExchangeDataOnline::onTradeTick::id(exchange, symbol),
   dataTradeTick
 );
 ```
@@ -156,12 +156,12 @@ SendMessage<stSymbolTimeTradeData>(
 ``` cpp tab="Send"
 SendMessage<stExchangeId>(
   MessageType::ExchangeDataOnline::cmdMarketTickerStart::id(),
-  "binance"
+  exchangeBinanceId
 );
 
 SendMessage<stExchangeId, stSymbolPair, timeframe_t>(
   MessageType::ExchangeDataOnline::cmdMarketTickerStop::id(),
-  "binance"
+  exchangeBinanceId
 );
 ```
 
@@ -180,19 +180,19 @@ RegisterMessageCallback<stExchangeId>(
 ## Market ticker
 
 - Type: `Message`
-- Message: `MessageType::ExchangeDataOnline::onMarketTick(exchange)`
+- Message: `MessageType::ExchangeDataOnline::onMarketTick::id(exchange)`
 - Params: `tradeData:TlstMarketTickers`
 
 ``` cpp tab="Register"
 RegisterMessageCallback<TlstMarketTickers>(
-  MessageType::ExchangeDataOnline::onMarketTick(exchange),
+  MessageType::ExchangeDataOnline::onMarketTick::id(exchange),
   boost::bind(&method, this, _1)
 );
 ```
 
 ``` cpp tab="Send"
 SendMessage<TlstMarketTickers>(
-  MessageType::ExchangeDataOnline::onMarketTick(exchange ),
+  MessageType::ExchangeDataOnline::onMarketTick::id(exchange ),
   lstMarketTicks
 );
 ```
