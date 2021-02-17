@@ -121,10 +121,10 @@ stExchangeOrder method(const XUuid& apiKey, const stExchangeOrderId& orderId)
 
 - Type: `Message`
 - Message: `MessageType::ExchangeCoins::notifyOrderChanged`
-- Params: `const XString& strApiKey, const stExchangeOrder& order`
+- Params: `const XUuid& uuidApiKey, const stExchangeOrderExecution& order`
 
 ``` cpp tab="Send"
-SendMessage<XString, stExchangeOrder>(
+SendMessage<XUuid, stExchangeOrderExecution>(
   MessageType::ExchangeCoins::notifyOrderChanged::id(),
   boost::bind(&method, this, _1),
   strApiKey,
@@ -133,14 +133,14 @@ SendMessage<XString, stExchangeOrder>(
 ```
 
 ``` cpp tab="Register"
-RegisterMessageCallback<XString, stExchangeOrder>(
+RegisterMessageCallback<XUuid, stExchangeOrderExecution>(
   MessageType::ExchangeCoins::notifyOrderChanged::id(),
   boost::bind(&method, this, _1, _2)
 );
 ```
 
 ``` cpp tab="Handler"
-void method(const XString& strApiKey, const stExchangeOrder& order)
+void method(const XUuid& uuidApiKey, const stExchangeOrderExecution& order)
 {
 
 }
