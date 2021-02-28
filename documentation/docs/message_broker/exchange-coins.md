@@ -4,11 +4,11 @@
 
 - Type: `Request`
 - Message: `MessageType::ExchangeCoins::requestSymbolPrice`
-- Returns: `double`
+- Returns: `Atomix::TimestampValue<double>`
 - Params: `stExchangeId exchangeId, stSymbolPair symbol`
 
 ``` cpp tab="Send"
-SendRequest<double, stExchangeId,stSymbolPair>(
+SendRequest<Atomix::TimestampValue<double>, stExchangeId,stSymbolPair>(
   MessageType::ExchangeCoins::requestSymbolPrice::id(),
   "binance",
   stSymbolPair("btc","usdt")
@@ -16,14 +16,14 @@ SendRequest<double, stExchangeId,stSymbolPair>(
 ```
 
 ``` cpp tab="Register"
-RegisterRequestCallback<double, stExchangeId, stSymbolPair>(
+RegisterRequestCallback<Atomix::TimestampValue<double>, stExchangeId, stSymbolPair>(
   MessageType::ExchangeCoins::requestSymbolPrice::id(),
   boost::bind(&method, this, _1,_2)
 );
 ```
 
 ``` cpp tab="Handler"
-double method(const stExchangeId& exchangeId, const stSymbolPair& symbol)
+Atomix::TimestampValue<double> method(const stExchangeId& exchangeId, const stSymbolPair& symbol)
 {
 
 }
