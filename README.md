@@ -10,8 +10,9 @@ Multi-purpose Application cryptocurrency traders. The application allows a bette
 - Trade analyzer which group and analyze your trades to positions for a better overview of your profitability.
 - Realtime market scanner engine to write complex market rules to search for the best opportunities for trades.
 - Real-time exchange alerts. Alert can be on simple price cross or complex multi-indicator expressions.
+- Trading module allows creating smart orders with several entry zones, TPs/SLs/...
 - Farming module offers some farming tools (Farming calculator allows LP/Staking simulations)
-- 
+
 **In progress:**
 - Multiple trading tools. Super-quick order posting (catching listing pumps), multi TP/SL orders with grid purchase, etc.
 
