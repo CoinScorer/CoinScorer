@@ -59,3 +59,6 @@ Project documentataion is available in `gh-pages` branch and available here: htt
 
 ***Scanner configuration***
 ![Scanner configuration](https://github.com/CoinScorer/CoinScorer/blob/main/files/CoinScorer_2021-08-17_09-30-54.png?raw=true)
+
+***Client/Server***
+![Scanner configuration](https://github.com/CoinScorer/CoinScorer/blob/main/files/devenv_2021-08-17_09-45-00.png.png?raw=true)
