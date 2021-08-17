@@ -5,7 +5,7 @@
 - Type: `Demand`
 - Message: `MessageType::ExchangeOrders::demandCreateOrder`
 - Returns: `stExchangeOrder`
-- Params: `const XUuid& apiKey, const stExchangeOrderCreate& order`
+- Params: `const XExchangeApiKey& apiKey, const stExchangeOrderCreate& order`
 
 ``` cpp tab="Send"
 SendDirectDemand<stExchangeOrder,XUuid, stExchangeOrderCreate>(
@@ -23,7 +23,7 @@ RegisterDemandCallback<stExchangeOrder,XUuid, stExchangeOrderCreate>(
 ```
 
 ``` cpp tab="Handler"
-stExchangeOrder method(const XUuid& apiKey, const stExchangeOrderCreate& order)
+stExchangeOrder method(const XExchangeApiKey& apiKey, const stExchangeOrderCreate& order)
 {
 
 }
@@ -34,7 +34,7 @@ stExchangeOrder method(const XUuid& apiKey, const stExchangeOrderCreate& order)
 - Type: `Demand`
 - Message: `MessageType::ExchangeOrders::demandCancelOrder`
 - Returns: `stExchangeOrder`
-- Params: `const XUuid& apiKey, const stExchangeOrderId& orderId`
+- Params: `const XExchangeApiKey& apiKey, const stExchangeOrderId& orderId`
 
 ``` cpp tab="Send"
 SendDirectDemand<stExchangeOrder, XUuid, stExchangeOrderId>(
@@ -52,7 +52,7 @@ RegisterDemandCallback<stExchangeOrder, XUuid, stExchangeOrderId>(
 ```
 
 ``` cpp tab="Handler"
-stExchangeOrder method(const XUuid& apiKey, const stExchangeOrderId& orderId)
+stExchangeOrder method(const XExchangeApiKey& apiKey, const stExchangeOrderId& orderId)
 {
 
 }
@@ -63,10 +63,10 @@ stExchangeOrder method(const XUuid& apiKey, const stExchangeOrderId& orderId)
 - Type: `Demand`
 - Message: `MessageType::ExchangeOrders::demandCancelAllOrders`
 - Returns: `stExchangeOrdersContainer`
-- Params: `const XUuid& apiKey, const stSymbolPair& symbol`
+- Params: `const XExchangeApiKey& apiKey, const stSymbolPair& symbol`
 
 ``` cpp tab="Send"
-SendDirectDemand<stExchangeOrdersContainer, XUuid, stSymbolPair>(
+SendDirectDemand<stExchangeOrdersContainer, XExchangeApiKey, stSymbolPair>(
   MessageType::ExchangeOrders::demandCancelAllOrders::id(),
   apiKey,
   symbol
@@ -74,14 +74,14 @@ SendDirectDemand<stExchangeOrdersContainer, XUuid, stSymbolPair>(
 ```
 
 ``` cpp tab="Register"
-RegisterDemandCallback<stExchangeOrdersContainer, XUuid, stSymbolPair>(
+RegisterDemandCallback<stExchangeOrdersContainer, XExchangeApiKey, stSymbolPair>(
   MessageType::ExchangeOrders::demandCancelAllOrders::id(),
   boost::bind(&method, this, _1,_2)
 );
 ```
 
 ``` cpp tab="Handler"
-stExchangeOrdersContainer method(const XUuid& apiKey, const stSymbolPair& symbol)
+stExchangeOrdersContainer method(const XExchangeApiKey& apiKey, const stSymbolPair& symbol)
 {
 
 }
@@ -92,10 +92,10 @@ stExchangeOrdersContainer method(const XUuid& apiKey, const stSymbolPair& symbol
 - Type: `Request`
 - Message: `MessageType::ExchangeOrders::requestGetOrder`
 - Returns: `stExchangeOrder`
-- Params: `const XUuid& apiKey, const stExchangeOrderId& orderId`
+- Params: `const XExchangeApiKey& apiKey, const stExchangeOrderId& orderId`
 
 ``` cpp tab="Send"
-SendRequest<stExchangeOrder, XUuid, stExchangeOrderId>(
+SendRequest<stExchangeOrder, XExchangeApiKey, stExchangeOrderId>(
   MessageType::ExchangeOrders::requestGetOrder::id(),
   apiKey,
   orderId
@@ -103,14 +103,14 @@ SendRequest<stExchangeOrder, XUuid, stExchangeOrderId>(
 ```
 
 ``` cpp tab="Register"
-RegisterRequestCallback<stExchangeOrder, XUuid, stExchangeOrderId>(
+RegisterRequestCallback<stExchangeOrder, XExchangeApiKey, stExchangeOrderId>(
   MessageType::ExchangeOrders::requestGetOrder::id(),
   boost::bind(&method, this, _1,_2)
 );
 ```
 
 ``` cpp tab="Handler"
-stExchangeOrder method(const XUuid& apiKey, const stExchangeOrderId& orderId)
+stExchangeOrder method(const XExchangeApiKey& apiKey, const stExchangeOrderId& orderId)
 {
 
 }
@@ -121,13 +121,13 @@ stExchangeOrder method(const XUuid& apiKey, const stExchangeOrderId& orderId)
 
 - Type: `Message`
 - Message: `MessageType::ExchangeCoins::notifyOrderChanged`
-- Params: `const XUuid& uuidApiKey, const stExchangeOrderExecution& order`
+- Params: `const XExchangeApiKey& apiKey, const stExchangeOrderExecution& order`
 
 ``` cpp tab="Send"
 SendMessage<XUuid, stExchangeOrderExecution>(
   MessageType::ExchangeCoins::notifyOrderChanged::id(),
   boost::bind(&method, this, _1),
-  strApiKey,
+  apiKey,
   order,
 );
 ```
@@ -140,7 +140,7 @@ RegisterMessageCallback<XUuid, stExchangeOrderExecution>(
 ```
 
 ``` cpp tab="Handler"
-void method(const XUuid& uuidApiKey, const stExchangeOrderExecution& order)
+void method(const XExchangeApiKey& apiKey, const stExchangeOrderExecution& order)
 {
 
 }
