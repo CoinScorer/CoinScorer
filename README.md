@@ -10,7 +10,7 @@ Multi-purpose Application cryptocurrency traders. The application allows a bette
 - Trade analyzer which group and analyze your trades to positions for a better overview of your profitability.
 - Realtime market scanner engine to write complex market rules to search for the best opportunities for trades.
 - Realtime exchange alerts. Alert can be on simple price cross or complex multi-indicator expressions.
-- Farming tools. (Complex impermanent loss simulations).
+- Farming tools (Complex impermanent loss simulations).
 - Automated & complex trading with multiple TP/SL/Entry (sandbox&real)
 - Client/Server architecture, ability to run all localy or on own remote server (dockerized version soon)
 
@@ -59,4 +59,3 @@ Project documentataion is available in `gh-pages` branch and available here: htt
 
 ***Scanner configuration**
 ![Scanner configuration](https://github.com/CoinScorer/CoinScorer/blob/main/files/d:\Upload\Screenshots\2021-08\CoinScorer_2021-08-17_09-30-54.png?raw=true)
-
