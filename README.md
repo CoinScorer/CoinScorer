@@ -58,4 +58,4 @@ Project documentataion is available in `gh-pages` branch and available here: htt
 ![Trade analyzer](https://github.com/CoinScorer/CoinScorer/blob/main/files/CoinScorer_2021-08-17_09-29-32.png?raw=true)
 
 ***Scanner configuration**
-![Scanner configuration](https://github.com/CoinScorer/CoinScorer/blob/main/files/d:\Upload\Screenshots\2021-08\CoinScorer_2021-08-17_09-30-54.png?raw=true)
+![Scanner configuration](https://github.com/CoinScorer/CoinScorer/blob/main/files/CoinScorer_2021-08-17_09-30-54.png?raw=true)
