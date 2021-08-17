@@ -1,6 +1,6 @@
 # CoinScorer
 
-![Application screenshot](https://github.com/CoinScorer/CoinScorer/blob/main/files/CoinScorer_2021-08-17_09-26-49.png?raw=true)
+![Application screenshot](https://github.com/CoinScorer/CoinScorer/blob/main/files/CoinScorer_2021-08-17_13-12-32.png?raw=true)
 
 Multi-purpose Application cryptocurrency traders. The application allows a better overview of your assets on the exchange, dynamic analysis of your trades, market scanners and alerts, and much more. Currently in early-alpha state.
 
